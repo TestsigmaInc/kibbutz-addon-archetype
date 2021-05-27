@@ -15,6 +15,8 @@
         <maven.compiler.target>9</maven.compiler.target>
         <testsigma.sdk.version>1.0.0</testsigma.sdk.version>
         <junit.jupiter.version>5.8.0-M1</junit.jupiter.version>
+        <testsigma.addon.maven.plugin>1.0.0</testsigma.addon.maven.plugin>
+        <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
     </properties>
 
     <dependencies>
@@ -43,6 +45,31 @@
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.testsigma.sdk</groupId>
+                <artifactId>testsigma-addon-maven-plugin</artifactId>
+                <version>${testsigma.addon.maven.plugin}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>upload</goal>
                         </goals>
                     </execution>
                 </executions>
