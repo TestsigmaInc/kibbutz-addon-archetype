@@ -1,6 +1,7 @@
 package ${package}.web;
 
 import com.testsigma.sdk.WebNLP;
+import com.testsigma.sdk.ApplicationType;
 import com.testsigma.sdk.annotation.NLP;
 import com.testsigma.sdk.annotation.TestData;
 import com.testsigma.sdk.annotation.UIIdentifier;
