@@ -1,0 +1,41 @@
+package ${package}.android;
+
+import com.testsigma.sdk.AndroidNLP;
+import com.testsigma.sdk.ApplicationType;
+import com.testsigma.sdk.annotation.NLP;
+import com.testsigma.sdk.annotation.TestData;
+import com.testsigma.sdk.annotation.UIIdentifier;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import lombok.Data;
+import org.openqa.selenium.WebElement;
+
+import java.time.Duration;
+
+@Data
+@NLP(grammar = "Swipe on screen from {source-coordinates} to {target-coordinates}", applicationType = ApplicationType.ANDROID)
+public class SwipeOnScreen extends AndroidNLP {
+
+    @TestData(reference = "source-coordinates")
+    private com.testsigma.sdk.TestData sourceCoordinates;
+    @TestData(reference = "target-coordinates")
+    private com.testsigma.sdk.TestData targetCoordinates;
+
+    @Override
+    protected void execute() throws Exception {
+        //Your Awesome code starts here
+        AndroidDriver androidDriver = (AndroidDriver)this.driver;
+        String[] srcCoordinatesString = sourceCoordinates.getValue().toString().split(",");
+        int sourceX = Integer.parseInt(srcCoordinatesString[0]);
+        int sourceY = Integer.parseInt(srcCoordinatesString[1]);
+        String[] targetCoordinatesString = targetCoordinates.getValue().toString().split(",");
+        int targetX = Integer.parseInt(targetCoordinatesString[0]);
+        int targetY = Integer.parseInt(targetCoordinatesString[1]);
+        log(String.format("Swiping from %s to %s",sourceCoordinates.getValue(),targetCoordinates.getValue()));
+        TouchAction swipeTo = new TouchAction(androidDriver);
+        Duration d = Duration.ofSeconds(5);
+        swipeTo.press(PointOption.point(sourceX, sourceY)).waitAction(WaitOptions.waitOptions(d)).moveTo(PointOption.point(targetX, targetY)).release().perform();
+    }
+}

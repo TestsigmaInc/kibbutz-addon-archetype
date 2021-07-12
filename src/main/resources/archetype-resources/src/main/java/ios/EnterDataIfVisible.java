@@ -1,16 +1,18 @@
-package ${package}.android;
+package ${package}.ios;
 
-import com.testsigma.sdk.AndroidNLP;
+
+import com.testsigma.sdk.IOSNLP;
 import com.testsigma.sdk.ApplicationType;
 import com.testsigma.sdk.annotation.NLP;
 import com.testsigma.sdk.annotation.TestData;
 import com.testsigma.sdk.annotation.UIIdentifier;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
+import lombok.Data;
 import org.openqa.selenium.WebElement;
 
-@NLP(grammar = "Enter {test-data} in element {ui-identifier} if visible", applicationType = ApplicationType.ANDROID)
-public class MyFirstAndroidNLP extends AndroidNLP {
-
+@Data
+@NLP(grammar = "Enter {test-data} in element {ui-identifier} if visible", applicationType = ApplicationType.IOS)
+public class EnterDataIfVisible extends IOSNLP {
   @TestData(reference = "test-data")
   private com.testsigma.sdk.TestData testData;
   @UIIdentifier(reference = "ui-identifier")
@@ -19,8 +21,8 @@ public class MyFirstAndroidNLP extends AndroidNLP {
   @Override
   protected void execute() throws Exception {
     //Your Awesome code starts here
-    AndroidDriver androidDriver = (AndroidDriver)this.driver;
-    WebElement element = uiIdentifier.getElement();
+    IOSDriver iosDriver = (IOSDriver)this.driver;
+    WebElement element = uiIdentifier.getElement();//Alternate way iosDriver.findElement(uiIdentifier.getBy())
     if(element.isDisplayed()){
       log("Element is displayed, entering data");
       element.sendKeys(testData.getValue().toString());
