@@ -4,7 +4,7 @@ package ${package}.android.test;
 import com.testsigma.sdk.TestData;
 import com.testsigma.sdk.runners.Runner;
 import io.appium.java_client.android.AndroidDriver;
-import org.example.android.SwipeOnScreen;
+import ${package}.android.SwipeOnScreen;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

@@ -3,7 +3,7 @@ package ${package}.web.test;
 import com.testsigma.sdk.TestData;
 import com.testsigma.sdk.UIIdentifier;
 import com.testsigma.sdk.runners.Runner;
-import org.example.web.MyFirstWebNLP;
+import ${package}.web.MyFirstWebNLP;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
