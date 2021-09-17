@@ -13,10 +13,10 @@ import org.testng.Assert;
 import java.util.List;
 
 @Data
-@NLP(grammar = "Verify no of options in select {element-locator} is equal to {values-count}",
-        description = "validates options count in a select drop-down",
+@NLP(grammar = "Store the text from {element-locator} in {values-count} variable",
+        description = "Stores run time data",
         applicationType = ApplicationType.WEB)
-public class MyFirstWebNLP extends WebNLP {
+public class MySecondWebNLP extends WebNLP {
 
   @TestData(reference = "values-count")
   private com.testsigma.sdk.TestData testData;
@@ -26,12 +26,11 @@ public class MyFirstWebNLP extends WebNLP {
   private com.testsigma.sdk.RunTimeData runTimeData;
 
   public void execute() throws Exception {
-    //Your Awesome code starts here
+    // Try use of run time data
     logger.info("Initiating execution");
     logger.debug("ui-identifier: "+ this.uiIdentifier.getValue() +" by:"+ this.uiIdentifier.getBy() + ", test-data: "+ this.testData.getValue());
     WebElement element = uiIdentifier.getElement();
-    Select selectElement = new Select(element);
-    List<WebElement> optionsList = selectElement.getOptions();
-    Assert.assertEquals(optionsList.size(), Integer.parseInt(testData.getValue().toString()));
+    runTimeData = new com.testsigma.sdk.RunTimeData();
+    runTimeData.setValue(element.getText());
   }
 }
