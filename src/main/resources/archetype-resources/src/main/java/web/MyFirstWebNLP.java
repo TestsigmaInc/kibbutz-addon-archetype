@@ -17,16 +17,18 @@ import java.util.List;
         applicationType = ApplicationType.WEB)
 public class MyFirstWebNLP extends WebNLP {
 
-
   @TestData(reference = "values-count")
-  private com.testsigma.sdk.TestData testdata;
+  private com.testsigma.sdk.TestData testData;
   @UIIdentifier(reference = "element-locator")
   private com.testsigma.sdk.UIIdentifier uiIdentifier;
 
   public void execute() throws Exception {
+    //Your Awesome code starts here
+    logger.info("Initiating execution");
+    logger.debug("ui-identifier: "+ this.uiIdentifier.getValue() +" by:"+ this.uiIdentifier.getBy() + ", test-data: "+ this.testData.getValue());
     WebElement element = uiIdentifier.getElement();
     Select selectElement = new Select(element);
     List<WebElement> optionsList = selectElement.getOptions();
-    Assert.assertEquals(optionsList.size(), Integer.parseInt(testdata.getValue().toString()));
+    Assert.assertEquals(optionsList.size(), Integer.parseInt(testData.getValue().toString()));
   }
 }

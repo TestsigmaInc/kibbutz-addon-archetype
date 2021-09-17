@@ -27,7 +27,7 @@ public class TestWebNLP {
     @Test
     public void validateCountriesCount() throws Exception {
         MyFirstWebNLP nlp = new MyFirstWebNLP();
-        nlp.setTestdata(new TestData("232"));
+        nlp.setTestData(new TestData("232"));
         UIIdentifier uiIdentifier = new UIIdentifier("",By.name("Country"));
         nlp.setUiIdentifier(uiIdentifier);
         runner.run(nlp);

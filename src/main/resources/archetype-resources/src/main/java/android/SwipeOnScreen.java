@@ -26,6 +26,8 @@ public class SwipeOnScreen extends AndroidNLP {
     @Override
     protected void execute() throws Exception {
         //Your Awesome code starts here
+        logger.info("Initiating execution");
+        logger.debug("source-coordinates: "+ this.sourceCoordinates.getValue() + ", target-coordinates: "+ this.targetCoordinates.getValue());
         AndroidDriver androidDriver = (AndroidDriver)this.driver;
         String[] srcCoordinatesString = sourceCoordinates.getValue().toString().split(",");
         int sourceX = Integer.parseInt(srcCoordinatesString[0]);

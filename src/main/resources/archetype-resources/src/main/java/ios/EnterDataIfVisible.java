@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 @Data
 @NLP(grammar = "Enter {test-data} in element {ui-identifier} if visible", applicationType = ApplicationType.IOS)
 public class EnterDataIfVisible extends IOSNLP {
+
   @TestData(reference = "test-data")
   private com.testsigma.sdk.TestData testData;
   @UIIdentifier(reference = "ui-identifier")
@@ -21,6 +22,8 @@ public class EnterDataIfVisible extends IOSNLP {
   @Override
   protected void execute() throws Exception {
     //Your Awesome code starts here
+    logger.info("Initiating execution");
+    logger.debug("ui-identifier: "+ this.uiIdentifier.getValue() +" by:"+ this.uiIdentifier.getBy() + ", test-data: "+ this.testData.getValue());
     IOSDriver iosDriver = (IOSDriver)this.driver;
     WebElement element = uiIdentifier.getElement();//Alternate way iosDriver.findElement(uiIdentifier.getBy())
     if(element.isDisplayed()){

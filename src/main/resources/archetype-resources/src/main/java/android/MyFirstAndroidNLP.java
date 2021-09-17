@@ -19,6 +19,8 @@ public class MyFirstAndroidNLP extends AndroidNLP {
   @Override
   protected void execute() throws Exception {
     //Your Awesome code starts here
+    logger.info("Initiating execution");
+    logger.debug("ui-identifier: "+ this.uiIdentifier.getValue() +" by:"+ this.uiIdentifier.getBy() + ", test-data: "+ this.testData.getValue());
     AndroidDriver androidDriver = (AndroidDriver)this.driver;
     WebElement element = uiIdentifier.getElement();
     if(element.isDisplayed()){
