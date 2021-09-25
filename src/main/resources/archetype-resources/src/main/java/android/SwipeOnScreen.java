@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
 import java.time.Duration;
 
 @Data
-@NLP(grammar = "Swipe on screen from {source-coordinates} to {target-coordinates}", applicationType = ApplicationType.ANDROID)
+@NLP(grammar = "Swipe on screen from source-coordinates to target-coordinates", applicationType = ApplicationType.ANDROID)
 public class SwipeOnScreen extends AndroidNLP {
 
     @TestData(reference = "source-coordinates")
@@ -35,7 +35,7 @@ public class SwipeOnScreen extends AndroidNLP {
         String[] targetCoordinatesString = targetCoordinates.getValue().toString().split(",");
         int targetX = Integer.parseInt(targetCoordinatesString[0]);
         int targetY = Integer.parseInt(targetCoordinatesString[1]);
-        log(String.format("Swiping from %s to %s",sourceCoordinates.getValue(),targetCoordinates.getValue()));
+        logger.info(String.format("Swiping from %s to %s",sourceCoordinates.getValue(),targetCoordinates.getValue()));
         TouchAction swipeTo = new TouchAction(androidDriver);
         Duration d = Duration.ofSeconds(5);
         swipeTo.press(PointOption.point(sourceX, sourceY)).waitAction(WaitOptions.waitOptions(d)).moveTo(PointOption.point(targetX, targetY)).release().perform();

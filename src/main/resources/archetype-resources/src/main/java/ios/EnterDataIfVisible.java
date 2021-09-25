@@ -11,7 +11,7 @@ import lombok.Data;
 import org.openqa.selenium.WebElement;
 
 @Data
-@NLP(grammar = "Enter {test-data} in element {ui-identifier} if visible", applicationType = ApplicationType.IOS)
+@NLP(grammar = "Enter test-data in element ui-identifier if visible", applicationType = ApplicationType.IOS)
 public class EnterDataIfVisible extends IOSNLP {
 
   @TestData(reference = "test-data")
@@ -27,7 +27,7 @@ public class EnterDataIfVisible extends IOSNLP {
     IOSDriver iosDriver = (IOSDriver)this.driver;
     WebElement element = uiIdentifier.getElement();//Alternate way iosDriver.findElement(uiIdentifier.getBy())
     if(element.isDisplayed()){
-      log("Element is displayed, entering data");
+      logger.info("Element is displayed, entering data");
       element.sendKeys(testData.getValue().toString());
     }else{
       throw new Exception(String.format("Element with locator %s is not visible",uiIdentifier.getBy()));

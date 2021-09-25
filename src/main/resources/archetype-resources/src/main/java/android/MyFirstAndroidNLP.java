@@ -8,7 +8,7 @@ import com.testsigma.sdk.annotation.UIIdentifier;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
 
-@NLP(grammar = "Enter {test-data} in element {ui-identifier} if visible", applicationType = ApplicationType.ANDROID)
+@NLP(grammar = "Enter test-data in element ui-identifier if visible", applicationType = ApplicationType.ANDROID)
 public class MyFirstAndroidNLP extends AndroidNLP {
 
   @TestData(reference = "test-data")
@@ -24,7 +24,7 @@ public class MyFirstAndroidNLP extends AndroidNLP {
     AndroidDriver androidDriver = (AndroidDriver)this.driver;
     WebElement element = uiIdentifier.getElement();
     if(element.isDisplayed()){
-      log("Element is displayed, entering data");
+      logger.info("Element is displayed, entering data");
       element.sendKeys(testData.getValue().toString());
     }else{
       throw new Exception(String.format("Element with locator %s is not visible",uiIdentifier.getBy()));

@@ -13,7 +13,7 @@ import org.testng.Assert;
 import java.util.List;
 
 @Data
-@NLP(grammar = "Store the text from {element-locator} in {values-count} variable",
+@NLP(grammar = "Store the text from element-locator in values-count variable",
         description = "Stores run time data",
         applicationType = ApplicationType.WEB)
 public class MySecondWebNLP extends WebNLP {
