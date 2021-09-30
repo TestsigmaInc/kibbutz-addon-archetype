@@ -7,6 +7,7 @@ import com.testsigma.sdk.annotation.TestData;
 import com.testsigma.sdk.annotation.UIIdentifier;
 import com.testsigma.sdk.annotation.RunTimeData;
 import lombok.Data;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -25,12 +26,17 @@ public class MySecondWebNLP extends WebNLP {
   @RunTimeData
   private com.testsigma.sdk.RunTimeData runTimeData;
 
-  public void execute() throws Exception {
+  @Override
+  public com.testsigma.sdk.Result execute() throws NoSuchElementException {
     // Try use of run time data
+    com.testsigma.sdk.Result result = com.testsigma.sdk.Result.SUCCESS;
     logger.info("Initiating execution");
     logger.debug("ui-identifier: "+ this.uiIdentifier.getValue() +" by:"+ this.uiIdentifier.getBy() + ", test-data: "+ this.testData.getValue());
     WebElement element = uiIdentifier.getElement();
     runTimeData = new com.testsigma.sdk.RunTimeData();
     runTimeData.setValue(element.getText());
+    runTimeData.setKey(testData.getValue().toString());
+    setSuccessMessage("Successfully stored "+element.getText()+" into ::"+testData.getValue());
+    return result;
   }
 }

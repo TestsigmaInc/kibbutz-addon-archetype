@@ -10,6 +10,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import lombok.Data;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
@@ -24,8 +25,9 @@ public class SwipeOnScreen extends AndroidNLP {
     private com.testsigma.sdk.TestData targetCoordinates;
 
     @Override
-    protected void execute() throws Exception {
+    protected com.testsigma.sdk.Result execute() throws NoSuchElementException {
         //Your Awesome code starts here
+        com.testsigma.sdk.Result result = com.testsigma.sdk.Result.SUCCESS;
         logger.info("Initiating execution");
         logger.debug("source-coordinates: "+ this.sourceCoordinates.getValue() + ", target-coordinates: "+ this.targetCoordinates.getValue());
         AndroidDriver androidDriver = (AndroidDriver)this.driver;
@@ -39,5 +41,7 @@ public class SwipeOnScreen extends AndroidNLP {
         TouchAction swipeTo = new TouchAction(androidDriver);
         Duration d = Duration.ofSeconds(5);
         swipeTo.press(PointOption.point(sourceX, sourceY)).waitAction(WaitOptions.waitOptions(d)).moveTo(PointOption.point(targetX, targetY)).release().perform();
+        setSuccessMessage(String.format("Successfully swiped from %s to %s", sourceCoordinates.getValue(), targetCoordinates.getValue()));
+        return result;
     }
 }

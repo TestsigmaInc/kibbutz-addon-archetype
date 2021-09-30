@@ -8,6 +8,7 @@ import com.testsigma.sdk.annotation.TestData;
 import com.testsigma.sdk.annotation.UIIdentifier;
 import io.appium.java_client.ios.IOSDriver;
 import lombok.Data;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 @Data
@@ -20,8 +21,9 @@ public class EnterDataIfVisible extends IOSNLP {
   private com.testsigma.sdk.UIIdentifier uiIdentifier;
 
   @Override
-  protected void execute() throws Exception {
+  protected com.testsigma.sdk.Result execute() throws NoSuchElementException {
     //Your Awesome code starts here
+    com.testsigma.sdk.Result result = com.testsigma.sdk.Result.SUCCESS;
     logger.info("Initiating execution");
     logger.debug("ui-identifier: "+ this.uiIdentifier.getValue() +" by:"+ this.uiIdentifier.getBy() + ", test-data: "+ this.testData.getValue());
     IOSDriver iosDriver = (IOSDriver)this.driver;
@@ -29,8 +31,12 @@ public class EnterDataIfVisible extends IOSNLP {
     if(element.isDisplayed()){
       logger.info("Element is displayed, entering data");
       element.sendKeys(testData.getValue().toString());
+      setSuccessMessage(String.format("Successfully entered %s on element with %s::%s", testData.getValue().toString(), uiIdentifier.getBy(), uiIdentifier.getValue()));
     }else{
-      throw new Exception(String.format("Element with locator %s is not visible",uiIdentifier.getBy()));
+      result = com.testsigma.sdk.Result.FAILED;
+      logger.warn("Element with locator %s is not visible ::"+uiIdentifier.getBy()+"::"+uiIdentifier.getValue());
+      setErrorMessage(String.format("Element with locator %s is not visible",uiIdentifier.getBy()));
     }
+    return result;
   }
 }
