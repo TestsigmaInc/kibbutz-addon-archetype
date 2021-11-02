@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class TestWebNLP {
     private Runner runner;
     private ChromeDriver driver;
+
     @BeforeClass
     public void setup() throws Exception {
         System.setProperty("webdriver.chrome.driver", "<Chrome Driver Path>");
@@ -32,6 +33,7 @@ public class TestWebNLP {
         nlp.setUiIdentifier(uiIdentifier);
         runner.run(nlp);
     }
+
     @AfterClass
     public void teardown() {
         if (runner != null) {
