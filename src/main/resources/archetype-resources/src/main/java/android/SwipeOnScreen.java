@@ -2,7 +2,7 @@ package ${package}.android;
 
 import com.testsigma.sdk.AndroidNLP;
 import com.testsigma.sdk.ApplicationType;
-import com.testsigma.sdk.annotation.NLP;
+import com.testsigma.sdk.annotation.Action;
 import com.testsigma.sdk.annotation.TestData;
 import com.testsigma.sdk.annotation.UIIdentifier;
 import io.appium.java_client.TouchAction;
@@ -16,7 +16,7 @@ import org.openqa.selenium.WebElement;
 import java.time.Duration;
 
 @Data
-@NLP(grammar = "Swipe on screen from source-coordinates to target-coordinates", applicationType = ApplicationType.ANDROID)
+@Action(grammar = "Swipe on screen from source-coordinates to target-coordinates", applicationType = ApplicationType.ANDROID)
 public class SwipeOnScreen extends AndroidNLP {
 
     @TestData(reference = "source-coordinates")

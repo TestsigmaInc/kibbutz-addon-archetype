@@ -3,7 +3,7 @@ package ${package}.ios;
 
 import com.testsigma.sdk.IOSNLP;
 import com.testsigma.sdk.ApplicationType;
-import com.testsigma.sdk.annotation.NLP;
+import com.testsigma.sdk.annotation.Action;
 import com.testsigma.sdk.annotation.TestData;
 import com.testsigma.sdk.annotation.UIIdentifier;
 import io.appium.java_client.ios.IOSDriver;
@@ -12,7 +12,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 @Data
-@NLP(grammar = "Enter test-data in element ui-identifier if visible", applicationType = ApplicationType.IOS)
+@Action(grammar = "Enter test-data in element ui-identifier if visible", applicationType = ApplicationType.IOS)
 public class EnterDataIfVisible extends IOSNLP {
 
   @TestData(reference = "test-data")

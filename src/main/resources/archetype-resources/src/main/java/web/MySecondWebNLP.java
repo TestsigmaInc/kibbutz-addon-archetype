@@ -2,7 +2,7 @@ package ${package}.web;
 
 import com.testsigma.sdk.WebNLP;
 import com.testsigma.sdk.ApplicationType;
-import com.testsigma.sdk.annotation.NLP;
+import com.testsigma.sdk.annotation.Action;
 import com.testsigma.sdk.annotation.TestData;
 import com.testsigma.sdk.annotation.UIIdentifier;
 import com.testsigma.sdk.annotation.RunTimeData;
@@ -14,7 +14,7 @@ import org.testng.Assert;
 import java.util.List;
 
 @Data
-@NLP(grammar = "Store the text from element-locator in values-count variable",
+@Action(grammar = "Store the text from element-locator in values-count variable",
         description = "Stores run time data",
         applicationType = ApplicationType.WEB)
 public class MySecondWebNLP extends WebNLP {
