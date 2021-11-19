@@ -14,7 +14,7 @@ import org.testng.Assert;
 import java.util.List;
 
 @Data
-@Action(grammar = "Verify no of options in select element-locator is equal to values-count",
+@Action(actionText = "Verify no of options in select element-locator is equal to values-count",
         description = "validates options count in a select drop-down",
         applicationType = ApplicationType.WEB)
 public class MyFirstWebNLP extends WebNLP {

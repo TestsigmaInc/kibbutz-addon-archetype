@@ -14,7 +14,7 @@ import org.testng.Assert;
 import java.util.List;
 
 @Data
-@Action(grammar = "Store the text from element-locator in values-count variable",
+@Action(actionText = "Store the text from element-locator in values-count variable",
         description = "Stores run time data",
         applicationType = ApplicationType.WEB)
 public class MySecondWebNLP extends WebNLP {

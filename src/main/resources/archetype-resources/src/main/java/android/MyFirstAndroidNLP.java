@@ -9,7 +9,7 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-@Action(grammar = "Enter test-data in element ui-identifier if visible", applicationType = ApplicationType.ANDROID)
+@Action(actionText = "Enter test-data in element ui-identifier if visible", applicationType = ApplicationType.ANDROID)
 public class MyFirstAndroidNLP extends AndroidNLP {
 
   @TestData(reference = "test-data")

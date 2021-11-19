@@ -19,7 +19,8 @@ public class RandomNumber extends TestDataFunction {
   public TestData generate() throws Exception {
     // Try use of run time data
     logger.info("Initiating execution");
-    int number = (int) ((Math.random() * ((int)max.getValue() - (int)min.getValue())) + (int)min.getValue());
+    int number = (int) ((Math.random() * (Integer.parseInt(max.getValue().toString()) - Integer.parseInt(min.getValue().toString()))) +
+                  Integer.parseInt(min.getValue().toString()));
     TestData testData = new TestData(number);
     return testData;
   }

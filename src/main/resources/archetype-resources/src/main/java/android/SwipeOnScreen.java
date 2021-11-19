@@ -16,7 +16,7 @@ import org.openqa.selenium.WebElement;
 import java.time.Duration;
 
 @Data
-@Action(grammar = "Swipe on screen from source-coordinates to target-coordinates", applicationType = ApplicationType.ANDROID)
+@Action(actionText = "Swipe on screen from source-coordinates to target-coordinates", applicationType = ApplicationType.ANDROID)
 public class SwipeOnScreen extends AndroidNLP {
 
     @TestData(reference = "source-coordinates")

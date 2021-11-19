@@ -12,7 +12,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 @Data
-@Action(grammar = "Enter test-data in element ui-identifier if visible", applicationType = ApplicationType.IOS)
+@Action(actionText = "Enter test-data in element ui-identifier if visible", applicationType = ApplicationType.IOS)
 public class EnterDataIfVisible extends IOSNLP {
 
   @TestData(reference = "test-data")
