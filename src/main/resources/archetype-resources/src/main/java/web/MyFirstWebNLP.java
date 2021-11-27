@@ -2,7 +2,7 @@ package ${package}.web;
 
 import com.testsigma.sdk.WebNLP;
 import com.testsigma.sdk.ApplicationType;
-import com.testsigma.sdk.annotation.NLP;
+import com.testsigma.sdk.annotation.Action;
 import com.testsigma.sdk.annotation.TestData;
 import com.testsigma.sdk.annotation.UIIdentifier;
 import com.testsigma.sdk.annotation.RunTimeData;
@@ -14,7 +14,7 @@ import org.testng.Assert;
 import java.util.List;
 
 @Data
-@NLP(grammar = "Verify no of options in select element-locator is equal to values-count",
+@Action(actionText = "Verify no of options in select element-locator is equal to values-count",
         description = "validates options count in a select drop-down",
         applicationType = ApplicationType.WEB)
 public class MyFirstWebNLP extends WebNLP {
