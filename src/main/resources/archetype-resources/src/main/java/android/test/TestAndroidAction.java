@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class TestAndroidNLP {
+public class TestAndroidAction {
     private Runner runner;
     private AndroidDriver driver;
 
@@ -29,16 +29,16 @@ public class TestAndroidNLP {
         driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         driver.launchApp();
-        runner = new Runner(driver); //Initialie NLP runner
+        runner = new Runner(driver); //Initialie Action runner
 
     }
 
     @Test
     public void swipeOnScreen() throws Exception {
-        SwipeOnScreen nlp = new SwipeOnScreen();
-        nlp.setSourceCoordinates(new TestData("102,60"));
-        nlp.setTargetCoordinates(new TestData("102,170"));
-        runner.run(nlp);
+        SwipeOnScreen action = new SwipeOnScreen();
+        action.setSourceCoordinates(new TestData("102,60"));
+        action.setTargetCoordinates(new TestData("102,170"));
+        runner.run(action);
     }
 
     @AfterClass

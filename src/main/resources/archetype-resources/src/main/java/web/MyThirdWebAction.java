@@ -2,7 +2,7 @@ package ${package}.web;
 
 import com.testsigma.sdk.StepActionType;
 import com.testsigma.sdk.Result;
-import com.testsigma.sdk.WebNLP;
+import com.testsigma.sdk.WebAction;
 import com.testsigma.sdk.ApplicationType;
 import com.testsigma.sdk.annotation.Action;
 import com.testsigma.sdk.annotation.TestData;
@@ -14,7 +14,7 @@ import org.openqa.selenium.NoSuchElementException;
         description = "Stores run time data",
         applicationType = ApplicationType.WEB,
         actionType = StepActionType.WHILE_LOOP)
-public class MyThirdWebNLP extends WebNLP {
+public class MyThirdWebAction extends WebAction {
 
   @TestData(reference = "values-count")
   private com.testsigma.sdk.TestData testData1;

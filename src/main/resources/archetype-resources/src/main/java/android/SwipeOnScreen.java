@@ -1,6 +1,6 @@
 package ${package}.android;
 
-import com.testsigma.sdk.AndroidNLP;
+import com.testsigma.sdk.AndroidAction;
 import com.testsigma.sdk.ApplicationType;
 import com.testsigma.sdk.annotation.Action;
 import com.testsigma.sdk.annotation.TestData;
@@ -17,7 +17,7 @@ import java.time.Duration;
 
 @Data
 @Action(actionText = "Swipe on screen from source-coordinates to target-coordinates", applicationType = ApplicationType.ANDROID)
-public class SwipeOnScreen extends AndroidNLP {
+public class SwipeOnScreen extends AndroidAction {
 
     @TestData(reference = "source-coordinates")
     private com.testsigma.sdk.TestData sourceCoordinates;

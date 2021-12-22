@@ -1,9 +1,9 @@
 package ${package}.web.test;
 
 import com.testsigma.sdk.TestData;
-import com.testsigma.sdk.UIIdentifier;
+import com.testsigma.sdk.Element;
 import com.testsigma.sdk.runners.Runner;
-import ${package}.web.MyFirstWebNLP;
+import ${package}.web.MyFirstWebAction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestWebNLP {
+public class TestWebAction {
     private Runner runner;
     private ChromeDriver driver;
 
@@ -22,16 +22,16 @@ public class TestWebNLP {
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        runner = new Runner(driver); //Initialie NLP runner
+        runner = new Runner(driver); //Initialie Action runner
         driver.get("https://www.orangehrm.com/orangehrm-30-day-trial/");
     }
     @Test
     public void validateCountriesCount() throws Exception {
-        MyFirstWebNLP nlp = new MyFirstWebNLP();
-        nlp.setTestData(new TestData("232"));
-        UIIdentifier uiIdentifier = new UIIdentifier("",By.name("Country"));
-        nlp.setUiIdentifier(uiIdentifier);
-        runner.run(nlp);
+        MyFirstWebAction action = new MyFirstWebAction();
+        action.setTestData(new TestData("232"));
+        Element element = new Element("",By.name("Country"));
+        action.setElement(element);
+        runner.run(action);
     }
 
     @AfterClass
