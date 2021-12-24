@@ -18,7 +18,7 @@ public class MySecondWebAction extends WebAction {
 
   @TestData(reference = "values-count")
   private com.testsigma.sdk.TestData testData;
-  @UIIdentifier(reference = "element-locator")
+  @Element(reference = "element-locator")
   private com.testsigma.sdk.Element element;
   @RunTimeData
   private com.testsigma.sdk.RunTimeData runTimeData;

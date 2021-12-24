@@ -4,7 +4,6 @@ import com.testsigma.sdk.AndroidAction;
 import com.testsigma.sdk.ApplicationType;
 import com.testsigma.sdk.annotation.Action;
 import com.testsigma.sdk.annotation.TestData;
-import com.testsigma.sdk.annotation.UIIdentifier;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;

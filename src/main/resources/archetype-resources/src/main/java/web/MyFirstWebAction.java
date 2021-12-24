@@ -30,7 +30,7 @@ public class MyFirstWebAction extends WebAction {
   public com.testsigma.sdk.Result execute() throws NoSuchElementException {
     //Your Awesome code starts here
     logger.info("Initiating execution");
-    logger.debug("ui-identifier: "+ this.element.getValue() +" by:"+ this.element.getBy() + ", test-data: "+ this.testData.getValue());
+    logger.debug("Element Locator: "+ this.element.getValue() +" by:"+ this.element.getBy() + ", test-data: "+ this.testData.getValue());
     WebElement webElement = element.getElement();
     Select selectElement = new Select(webElement);
     List<WebElement> optionsList = selectElement.getOptions();

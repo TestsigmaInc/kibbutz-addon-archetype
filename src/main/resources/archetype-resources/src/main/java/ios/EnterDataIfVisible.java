@@ -18,14 +18,14 @@ public class EnterDataIfVisible extends IOSAction {
   @TestData(reference = "test-data")
   private com.testsigma.sdk.TestData testData;
   @Element(reference = "element-locator")
-  private com.testsigma.sdk.Element uiIdentifier;
+  private com.testsigma.sdk.Element element;
 
   @Override
   protected com.testsigma.sdk.Result execute() throws NoSuchElementException {
     //Your Awesome code starts here
     com.testsigma.sdk.Result result = com.testsigma.sdk.Result.SUCCESS;
     logger.info("Initiating execution");
-    logger.debug("ui-identifier: "+ this.element.getValue() +" by:"+ this.element.getBy() + ", test-data: "+ this.testData.getValue());
+    logger.debug("Element Locator: "+ this.element.getValue() +" by:"+ this.element.getBy() + ", test-data: "+ this.testData.getValue());
     IOSDriver iosDriver = (IOSDriver)this.driver;
     WebElement webElement = element.getElement();//Alternate way iosDriver.findElement(element.getBy())
     if(webElement.isDisplayed()){
