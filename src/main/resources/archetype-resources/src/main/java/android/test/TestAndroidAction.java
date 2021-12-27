@@ -2,7 +2,7 @@ package ${package}.android.test;
 
 
 import com.testsigma.sdk.TestData;
-import com.testsigma.sdk.runners.Runner;
+import com.testsigma.sdk.runners.ActionRunner;
 import io.appium.java_client.android.AndroidDriver;
 import ${package}.android.SwipeOnScreen;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class TestAndroidAction {
-    private Runner runner;
+    private ActionRunner runner;
     private AndroidDriver driver;
 
     @BeforeClass
@@ -29,7 +29,7 @@ public class TestAndroidAction {
         driver = new AndroidDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         driver.launchApp();
-        runner = new Runner(driver); //Initialie Action runner
+        runner = new ActionRunner(driver); //Initialie Action runner
 
     }
 

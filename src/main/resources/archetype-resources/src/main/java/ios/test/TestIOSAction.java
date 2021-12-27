@@ -3,7 +3,7 @@ package ${package}.ios.test;
 
 import com.testsigma.sdk.TestData;
 import com.testsigma.sdk.Element;
-import com.testsigma.sdk.runners.Runner;
+import com.testsigma.sdk.runners.ActionRunner;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import ${package}.ios.EnterDataIfVisible;
@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class TestIOSAction {
-    private Runner runner;
+    private ActionRunner runner;
     private IOSDriver driver;
 
     @BeforeClass
@@ -36,7 +36,7 @@ public class TestIOSAction {
         IOSDriver<WebElement> driver = new IOSDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.launchApp();
-        runner = new Runner(driver); //Initialie Action runner
+        runner = new ActionRunner(driver); //Initialie Action runner
 
     }
 

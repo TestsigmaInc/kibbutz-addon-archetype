@@ -2,7 +2,7 @@ package ${package}.web.test;
 
 import com.testsigma.sdk.TestData;
 import com.testsigma.sdk.Element;
-import com.testsigma.sdk.runners.Runner;
+import com.testsigma.sdk.runners.ActionRunner;
 import ${package}.web.MyFirstWebAction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class TestWebAction {
-    private Runner runner;
+    private ActionRunner runner;
     private ChromeDriver driver;
 
     @BeforeClass
@@ -22,7 +22,7 @@ public class TestWebAction {
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        runner = new Runner(driver); //Initialie Action runner
+        runner = new ActionRunner(driver); //Initialie Action runner
         driver.get("https://www.orangehrm.com/orangehrm-30-day-trial/");
     }
     @Test
