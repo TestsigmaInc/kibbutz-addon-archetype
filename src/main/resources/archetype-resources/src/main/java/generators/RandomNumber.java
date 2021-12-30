@@ -16,6 +16,7 @@ public class RandomNumber extends TestDataFunction {
   @TestDataFunctionParameter (reference = "max")
   private com.testsigma.sdk.TestDataParameter max;
 
+  @Override
   public TestData generate() throws Exception {
     // Try use of run time data
     logger.info("Initiating execution");
